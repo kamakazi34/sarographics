@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAROGraphics — Gear for the Game</title>
+  <meta name="description" content="Sports-themed apparel, stickers, and accessories. SAROGraphics — Gear for the Game." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d1b2a; --navy2: #162032; --orange: #f47c20;
+      --orange-dark: #d46510; --white: #ffffff; --light: #f0f4f8; --grey: #8a9ab0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--navy); color: var(--white); min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(13,27,42,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(244,124,32,0.15); }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo .saro { font-size: 1.4rem; font-weight: 900; letter-spacing: 0.08em; color: var(--orange); }
+    .nav-logo .graphics { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.35em; color: var(--grey); text-transform: uppercase; }
+    .nav-cta { background: var(--orange); color: var(--white); text-decoration: none; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1.25rem; border-radius: 4px; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-dark); }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(244,124,32,0.08) 0%, transparent 70%), repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(255,255,255,0.018) 40px, rgba(255,255,255,0.018) 41px); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--orange), transparent); }
+    .hero-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.35em; color: var(--orange); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.75rem; }
+    .saro-big { font-size: clamp(4rem, 14vw, 9rem); font-weight: 900; letter-spacing: -0.02em; line-height: 0.9; color: var(--white); }
+    .saro-big span { color: var(--orange); }
+    .graphics-big { font-size: clamp(0.9rem, 3vw, 1.6rem); font-weight: 600; letter-spacing: 0.55em; color: var(--grey); text-transform: uppercase; margin-top: 0.3rem; }
+    .tagline { font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 400; color: var(--light); margin-bottom: 0.6rem; opacity: 0.9; }
+    .tagline strong { color: var(--orange); font-weight: 700; }
+    .sub-tagline { font-size: 0.95rem; color: var(--grey); margin-bottom: 2.5rem; max-width: 480px; }
+    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { display: inline-block; background: var(--orange); color: var(--white); text-decoration: none; font-weight: 800; font-size: 1rem; padding: 0.9rem 2.2rem; border-radius: 5px; transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 24px rgba(244,124,32,0.35); }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .btn-secondary { display: inline-block; background: transparent; color: var(--light); text-decoration: none; font-weight: 600; font-size: 1rem; padding: 0.9rem 2.2rem; border-radius: 5px; border: 1.5px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
+    .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+    .products { background: var(--navy2); padding: 5rem 2rem; text-align: center; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--orange); text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 3rem; color: var(--white); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 2rem 1.5rem; transition: border-color 0.2s, transform 0.2s; }
+    .card:hover { border-color: var(--orange); transform: translateY(-4px); }
+    .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.88rem; color: var(--grey); line-height: 1.6; }
+    .cta-band { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%); padding: 4rem 2rem; text-align: center; }
+    .cta-band h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; color: var(--white); margin-bottom: 0.75rem; }
+    .cta-band p { color: rgba(255,255,255,0.85); margin-bottom: 2rem; font-size: 1rem; }
+    .btn-white { display: inline-block; background: var(--white); color: var(--orange-dark); text-decoration: none; font-weight: 800; font-size: 1rem; padding: 0.9rem 2.5rem; border-radius: 5px; transition: transform 0.15s; box-shadow: 0 4px 18px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); }
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo .saro { font-size: 1.2rem; font-weight: 900; color: var(--orange); }
+    .footer-logo .graphics { font-size: 0.5rem; letter-spacing: 0.35em; color: var(--grey); }
+    footer p { color: var(--grey); font-size: 0.8rem; margin-top: 1rem; line-height: 1.7; }
+    footer a { color: var(--grey); text-decoration: none; }
+    footer a:hover { color: var(--orange); }
+    @media (max-width: 480px) { nav { padding: 0.75rem 1.25rem; } .hero { padding: 5rem 1.25rem 3rem; } .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo"><span class="saro">SARO</span><span class="graphics">Graphics</span></div>
+    <a href="https://www.redbubble.com/people/sarographics/shop" class="nav-cta" target="_blank" rel="noopener">Shop Now</a>
+  </nav>
+  <section class="hero">
+    <p class="hero-eyebrow">Sports &bull; Apparel &bull; Accessories</p>
+    <div class="hero-logo">
+      <div class="saro-big"><span>S</span>ARO</div>
+      <div class="graphics-big">Graphics</div>
+    </div>
+    <p class="tagline"><strong>Gear for the Game.</strong></p>
+    <p class="sub-tagline">Sports-themed apparel, stickers, and accessories for people who live for the field, the court, and the track.</p>
+    <div class="cta-group">
+      <a href="https://www.redbubble.com/people/sarographics/shop" class="btn-primary" target="_blank" rel="noopener">Shop on Redbubble &rarr;</a>
+      <a href="https://www.redbubble.com/people/sarographics/shop" class="btn-secondary" target="_blank" rel="noopener">Browse All Designs</a>
+    </div>
+  </section>
+  <section class="products">
+    <p class="section-label">What we make</p>
+    <h2 class="section-title">Built for fans, athletes, and coaches</h2>
+    <div class="cards">
+      <div class="card"><div class="card-icon">&#128085;</div><h3>Apparel</h3><p>T-shirts, hoodies, and tank tops with bold sports graphics that stand out on and off the pitch.</p></div>
+      <div class="card"><div class="card-icon">&#127991;</div><h3>Stickers</h3><p>Die-cut stickers for your water bottle, laptop, locker, or anywhere you want to rep the game.</p></div>
+      <div class="card"><div class="card-icon">&#127936;</div><h3>Accessories</h3><p>Bags, caps, phone cases, and more — every piece designed around a love of sport.</p></div>
+      <div class="card"><div class="card-icon">&#127912;</div><h3>Art Prints</h3><p>Framed prints and posters to bring sports energy into your home, gym, or clubroom.</p></div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <h2>Ready to gear up?</h2>
+    <p>All products printed on demand and shipped worldwide via Redbubble.</p>
+    <a href="https://www.redbubble.com/people/sarographics/shop" class="btn-white" target="_blank" rel="noopener">Visit the SAROGraphics Shop</a>
+  </section>
+  <footer>
+    <div class="footer-logo"><div class="saro">SARO</div><div class="graphics">Graphics</div></div>
+    <p>&copy; 2026 SAROGraphics &mdash; ABN 23&nbsp;148&nbsp;436&nbsp;386<br /><a href="https://www.redbubble.com/people/sarographics/shop" target="_blank" rel="noopener">Redbubble Store</a> &bull; <a href="mailto:jake.martin@saroarch.com">Contact</a></p>
+    <p style="margin-top:0.75rem;font-size:0.72rem;opacity:0.6;">Please note, this document was formatted using AI but was checked by a human</p>
+  </footer>
+</body>
+</html>
