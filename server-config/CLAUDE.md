@@ -39,3 +39,24 @@ Jake runs three companies. Apply the correct tone and context for each:
 **SAROGraphics** — design-led sports apparel studio, operates under SARO ABN
 - Creative, brand-focused tone
 - Printify API token: ~/.config/sarographics/printify_token
+
+## Paid/costed tools — opt-in only, applies to every project
+- `~/brightdata_helper.py` (LinkedIn/Instagram profile, company and post lookups
+  via Bright Data) is a PAID service billed per lookup, roughly $1.50 per 1,000
+  LinkedIn records and $0.75 per 1,000 Instagram records. It is available to
+  every company/project on this box (SARO, Tiny Sports, SAROGraphics, Buchan,
+  personal) but must NEVER run as part of routine or proactive research, a
+  scheduled task, or any background agent unless that specific task has been
+  explicitly told to use Bright Data and to incur cost.
+- Default to free options (WebSearch with `site:linkedin.com` /
+  `site:instagram.com`, WebFetch) for social media research. Only reach for
+  Bright Data when free search genuinely can't get what's needed, e.g. full
+  profile/company detail or a recent-posts feed behind a login wall.
+- The script itself refuses to call the API without `--confirm` (CLI) or
+  `confirm=True` (library) and prints the estimated cost before running, so an
+  accidental or automated call fails safe. Only pass that flag when Jake has
+  just asked for this lookup in the current conversation and understands it
+  costs money.
+- Never add `--confirm` to a cron job, a skill default, or a wrapper script
+  without Jake's separate, explicit sign-off for that specific integration.
+  "Available on the box" does not mean "on by default" anywhere.
