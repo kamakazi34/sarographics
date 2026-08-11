@@ -1,0 +1,1 @@
+Patch applied in same commit: `.pimg img` gains `aspect-ratio:auto; object-fit:contain;` so the base `.product img { aspect-ratio:1; object-fit:cover }` rule does not crop the wordmark SVGs. This note can be deleted.
