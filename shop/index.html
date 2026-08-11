@@ -49,6 +49,8 @@
     .buy { font-family: 'Archivo', sans-serif; background: var(--ink); color: var(--lime); text-decoration: none; font-weight: 800; font-size: 0.85rem; padding: 0.6rem 1.3rem; transition: background 0.2s, color 0.2s; }
     .buy:hover { background: var(--magenta); color: var(--bone); }
     .buy.disabled { background: var(--muted); color: var(--bone); pointer-events: none; }
+    button.buy { border: none; cursor: pointer; font-size: 0.85rem; }
+    .buy.done { background: var(--forest); color: var(--mint); pointer-events: none; }
     .preorder { font-family: 'Archivo Narrow', sans-serif; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--magenta); font-weight: 700; }
     .how { padding: 4.5rem 2rem; text-align: center; max-width: 720px; margin: 0 auto; }
     .how h2 { font-size: clamp(1.3rem, 3.5vw, 1.9rem); font-weight: 800; margin-bottom: 1rem; }
@@ -89,7 +91,7 @@
         <div class="p-body">
           <h3>Tiny Sports Tee, Mint</h3>
           <p class="desc">Heavy cotton tee in Mint with the Forest wordmark, printed front chest.</p>
-          <div class="p-row"><span class="price">$45</span><a class="buy" href="https://buy.stripe.com/test_6oU4gt8TZ98t7RMaNw2kw00">Buy</a></div>
+          <div class="p-row"><span class="price">$45</span><button type="button" class="buy notify" data-sku="TEE_MINT">Coming Soon</button></div>
           <span class="preorder">Pre-order, first batch</span>
         </div>
       </div>
@@ -98,7 +100,7 @@
         <div class="p-body">
           <h3>Tiny Sports Tee, Forest</h3>
           <p class="desc">Heavy cotton tee in Forest with the Mint wordmark, printed front chest.</p>
-          <div class="p-row"><span class="price">$45</span><a class="buy" href="https://buy.stripe.com/test_dRm00d1rxckF7RM5tc2kw01">Buy</a></div>
+          <div class="p-row"><span class="price">$45</span><button type="button" class="buy notify" data-sku="TEE_FOREST">Coming Soon</button></div>
           <span class="preorder">Pre-order, first batch</span>
         </div>
       </div>
@@ -107,7 +109,7 @@
         <div class="p-body">
           <h3>Tiny Sports Tee, White</h3>
           <p class="desc">White tee with the one colour Ink mark. The quiet one.</p>
-          <div class="p-row"><span class="price">$42</span><a class="buy" href="https://buy.stripe.com/test_fZufZb1rx2K58VQcVE2kw02">Buy</a></div>
+          <div class="p-row"><span class="price">$42</span><button type="button" class="buy notify" data-sku="TEE_WHITE">Coming Soon</button></div>
           <span class="preorder">Pre-order, first batch</span>
         </div>
       </div>
@@ -116,7 +118,7 @@
         <div class="p-body">
           <h3>Run Cap, Forest</h3>
           <p class="desc">Low profile five panel performance cap, crescent icon embroidered on the front. Made to be sweated in.</p>
-          <div class="p-row"><span class="price">$45</span><a class="buy" href="https://buy.stripe.com/test_cNifZb6LRfwR2xs1cW2kw03">Buy</a></div>
+          <div class="p-row"><span class="price">$45</span><button type="button" class="buy notify" data-sku="CAP_FOREST">Coming Soon</button></div>
           <span class="preorder">Pre-order, first batch</span>
         </div>
       </div>
@@ -125,7 +127,7 @@
         <div class="p-body">
           <h3>Run Cap, Mint</h3>
           <p class="desc">Same cap, Mint shell with the Forest crescent. For the light kit days.</p>
-          <div class="p-row"><span class="price">$45</span><a class="buy" href="https://buy.stripe.com/test_9B64gt1rxesN6NI7Bk2kw04">Buy</a></div>
+          <div class="p-row"><span class="price">$45</span><button type="button" class="buy notify" data-sku="CAP_MINT">Coming Soon</button></div>
           <span class="preorder">Pre-order, first batch</span>
         </div>
       </div>
@@ -134,7 +136,7 @@
         <div class="p-body">
           <h3>Crescent Sticker, 75mm</h3>
           <p class="desc">The crescent, die cut. For the bike, the bottle, the kit box.</p>
-          <div class="p-row"><span class="price">$8</span><a class="buy" href="https://buy.stripe.com/test_7sYeV75HN2K59ZU5tc2kw05">Buy</a></div>
+          <div class="p-row"><span class="price">$8</span><button type="button" class="buy notify" data-sku="STICKER_75">Coming Soon</button></div>
           <span class="preorder">Ships now</span>
         </div>
       </div>
@@ -143,7 +145,7 @@
         <div class="p-body">
           <h3>Sticker Pack</h3>
           <p class="desc">Three die cuts: 75mm crescent, 50mm crescent and the wordmark. One for everything you own.</p>
-          <div class="p-row"><span class="price">$18</span><a class="buy" href="https://buy.stripe.com/test_14AaERgmrfwRfke7Bk2kw06">Buy</a></div>
+          <div class="p-row"><span class="price">$18</span><button type="button" class="buy notify" data-sku="STICKER_PACK">Coming Soon</button></div>
           <span class="preorder">Ships now</span>
         </div>
       </div>
@@ -152,13 +154,37 @@
 
   <section class="how">
     <h2>How this works</h2>
-    <p>The Tiny Sports Collection is designed and sold by SAROGraphics as a fundraiser, with proceeds going to Tiny Sports Limited, an Australian not-for-profit that helps grassroots sports clubs and coaches get the grant funding that helps them grow. Payments are processed securely by Stripe.</p>
-    <p>Apparel is made in small batches, so pre-order items ship when the batch lands, typically 3 to 4 weeks. Stickers ship straight away. Questions: <a href="mailto:jake.martin@saroarch.com" style="color:var(--magenta)">get in touch</a>.</p>
+    <p>The Tiny Sports Collection is designed and sold by SAROGraphics as a fundraiser, with proceeds going to Tiny Sports Limited, an Australian not-for-profit that helps grassroots sports clubs and coaches get the grant funding that helps them grow.</p>
+    <p>The shop opens very soon. Tapping Coming Soon on a product tells us there is real demand for it, which is exactly how we size the first small batch. Apparel ships 3 to 4 weeks after a batch is placed; stickers ship straight away once we are live. Questions: <a href="mailto:jake.martin@saroarch.com" style="color:var(--magenta)">get in touch</a>.</p>
   </section>
 
   <footer>
     <p>&copy; 2026 SAROGraphics &bull; A fundraiser for <a href="https://tiny-sports.org" target="_blank" rel="noopener">Tiny Sports</a><br /><a href="/">sarographics.com</a> &bull; <a href="mailto:jake.martin@saroarch.com">Contact</a></p>
     <p style="margin-top:0.75rem;font-size:0.72rem;opacity:0.6;">Please note, this document was formatted using AI but was checked by a human</p>
   </footer>
+  <script>
+    (function () {
+      var done = [];
+      try { done = JSON.parse(localStorage.getItem('sgx_notify') || '[]'); } catch (e) {}
+      function mark(btn) { btn.textContent = 'On the list'; btn.classList.add('done'); btn.disabled = true; }
+      document.querySelectorAll('.notify').forEach(function (btn) {
+        var sku = btn.getAttribute('data-sku');
+        if (done.indexOf(sku) !== -1) mark(btn);
+        btn.addEventListener('click', function () {
+          btn.disabled = true; btn.textContent = 'One sec';
+          fetch('/api/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sku: sku })
+          }).then(function (r) { return r.json(); }).then(function (j) {
+            if (j && j.ok) {
+              mark(btn);
+              if (done.indexOf(sku) === -1) { done.push(sku); try { localStorage.setItem('sgx_notify', JSON.stringify(done)); } catch (e) {} }
+            } else { btn.disabled = false; btn.textContent = 'Coming Soon'; }
+          }).catch(function () { btn.disabled = false; btn.textContent = 'Coming Soon'; });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
