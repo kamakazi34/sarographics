@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Tiny Sports Collection | Tell us what you would wear</title>
+  <meta name="description" content="Early look at the Tiny Sports Collection. Made with FRACTEL, sold as a fundraiser for grassroots sport. Tell us what you would wear before we place the first batch." />
+  <link rel="canonical" href="https://www.sarographics.com/collection/" />
+  <meta name="theme-color" content="#24503F" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="robots" content="noindex" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Tiny Sports Collection | Early look" />
+  <meta property="og:description" content="Tell us what you would wear. Every sale backs the Tiny Sports grant program for grassroots sport." />
+  <meta property="og:url" content="https://www.sarographics.com/collection/" />
+  <meta property="og:image" content="https://www.sarographics.com/images/products/tee.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lime:#B8CE1F; --magenta:#E23E9A; --bone:#E8E7DF; --ink:#14130F;
+      --chalk:#F4F2EA; --muted:#6B6560; --forest:#24503F; --mint:#D8EEE1; --teal:#3D8E93;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--bone); color:var(--ink); }
+    h1,h2,h3 { font-family:'Archivo',system-ui,sans-serif; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between;
+          padding:0.9rem 2rem; background:rgba(232,231,223,0.94); backdrop-filter:blur(8px); border-bottom:1px solid rgba(20,19,15,0.12); }
+    .nav-logo img { display:block; height:30px; width:auto; }
+    .nav-cta { font-family:'Archivo Narrow',sans-serif; background:var(--ink); color:var(--lime); text-decoration:none; font-weight:700;
+               font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.55rem 1.3rem; transition:background .2s,color .2s; }
+    .nav-cta:hover { background:var(--magenta); color:var(--bone); }
+
+    .hero { background:var(--forest); color:var(--mint); padding:9rem 2rem 4rem; text-align:center; }
+    .eyebrow { font-family:'Archivo Narrow',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.35em;
+               color:var(--teal); text-transform:uppercase; margin-bottom:1.25rem; }
+    .hero h1 { font-size:clamp(2rem,6vw,3.4rem); font-weight:800; margin-bottom:1.1rem; color:#fff; }
+    .hero p { max-width:600px; margin:0 auto; line-height:1.75; opacity:0.92; }
+
+    .flag { background:var(--ink); color:var(--bone); padding:1.15rem 2rem; text-align:center; font-size:0.86rem; line-height:1.6; }
+    .flag strong { color:var(--lime); }
+
+    .grid-wrap { background:var(--chalk); padding:4rem 2rem 5rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr)); gap:1.75rem; max-width:1100px; margin:0 auto; }
+    .product { background:var(--bone); border:1px solid rgba(20,19,15,0.12); position:relative; display:flex; flex-direction:column; transition:transform .2s,border-color .2s; }
+    .product::before { content:''; position:absolute; top:0; left:0; width:34px; height:6px; background:var(--magenta); z-index:2; }
+    .product::after  { content:''; position:absolute; top:3px; left:3px; width:34px; height:6px; background:var(--lime); z-index:2; }
+    .product:hover { border-color:var(--ink); transform:translateY(-4px); }
+    .product img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; }
+    .p-body { padding:1.25rem 1.25rem 1.5rem; display:flex; flex-direction:column; gap:0.4rem; flex:1; }
+    .p-body h3 { font-size:1rem; font-weight:700; }
+    .p-body .desc { font-size:0.83rem; color:var(--muted); line-height:1.55; flex:1; }
+    .p-row { display:flex; align-items:center; justify-content:space-between; margin-top:0.9rem; gap:0.75rem; }
+    .price { font-family:'Archivo',sans-serif; font-weight:800; font-size:0.95rem; color:var(--muted); letter-spacing:0.04em; }
+    button.buy { font-family:'Archivo',sans-serif; background:var(--ink); color:var(--lime); border:none; cursor:pointer;
+                 font-weight:800; font-size:0.82rem; padding:0.6rem 1.15rem; transition:background .2s,color .2s; }
+    button.buy:hover { background:var(--magenta); color:var(--bone); }
+    button.buy.done { background:var(--forest); color:var(--mint); pointer-events:none; }
+    .tag { font-family:'Archivo Narrow',sans-serif; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); font-weight:700; }
+
+    .how { padding:4.5rem 2rem; max-width:760px; margin:0 auto; }
+    .how h2 { font-size:clamp(1.3rem,3.5vw,1.9rem); font-weight:800; margin-bottom:1.2rem; }
+    .how p { color:var(--muted); line-height:1.8; font-size:0.95rem; margin-bottom:1rem; }
+    .steps { display:grid; gap:1rem; margin:2rem 0; }
+    .step { display:flex; gap:1rem; align-items:flex-start; }
+    .step .n { font-family:'Archivo',sans-serif; font-weight:800; color:var(--magenta); font-size:1.1rem; min-width:1.6rem; }
+    .step p { margin:0; }
+    .ask { background:var(--mint); border:1px solid rgba(36,80,63,0.25); padding:2rem; margin-top:2rem; }
+    .ask h3 { font-size:1.05rem; margin-bottom:0.6rem; color:var(--forest); }
+    .ask p { color:var(--forest); opacity:0.85; margin-bottom:1.2rem; }
+    .ask a { display:inline-block; font-family:'Archivo',sans-serif; background:var(--forest); color:var(--mint);
+             text-decoration:none; font-weight:800; font-size:0.85rem; padding:0.7rem 1.5rem; }
+    .ask a:hover { background:var(--ink); }
+
+    footer { background:var(--ink); padding:2.5rem 2rem; text-align:center; }
+    footer p { color:var(--muted); font-size:0.8rem; margin-top:0.5rem; line-height:1.7; }
+    footer a { color:rgba(232,231,223,0.7); text-decoration:none; }
+    footer a:hover { color:var(--lime); }
+    @media (max-width:480px){ nav{padding:0.75rem 1.25rem;} .hero{padding:7rem 1.25rem 3rem;} }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="/" aria-label="SAROGraphics home"><img src="/assets/sgx-mono.svg" alt="SAROGraphics" width="135" height="30" /></a>
+    <a href="/" class="nav-cta">Home</a>
+  </nav>
+
+  <section class="hero">
+    <p class="eyebrow">The Tiny Sports Collection</p>
+    <h1>Tell us what you would wear.</h1>
+    <p>Technical running kit made with FRACTEL, carrying the Tiny Sports mark, sold as a fundraiser for grassroots sport. Nothing has been made yet. What gets produced depends on what you tell us here.</p>
+  </section>
+
+  <div class="flag">
+    Everything below is a <strong>mockup</strong>, not a photograph, and pricing is <strong>still being worked out</strong>. This page exists to find out what people actually want before any money is spent.
+  </div>
+
+  <section class="grid-wrap">
+    <div class="grid">
+
+      <div class="product">
+        <img src="/images/products/cap.png" alt="Tiny Sports run cap in forest green, mockup" loading="lazy" />
+        <div class="p-body">
+          <h3>Run Cap</h3>
+          <p class="desc">Five panel technical running cap. Recycled fabric, pliable peak, wordmark on the front panel. Two sizes.</p>
+          <div class="p-row"><span class="price">Price TBD</span><button type="button" class="buy notify" data-sku="CAP_FOREST" data-name="Run Cap">I would wear this</button></div>
+          <span class="tag">Most likely first</span>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="/images/products/tee.png" alt="Tiny Sports performance tee in forest green, mockup" loading="lazy" />
+        <div class="p-body">
+          <h3>Performance Tee</h3>
+          <p class="desc">Tyndall fabric, 88 percent recycled polyester, UPF 50 plus, four way stretch. Mens and womens cuts, XS to XL.</p>
+          <div class="p-row"><span class="price">Price TBD</span><button type="button" class="buy notify" data-sku="TEE_PERF" data-name="Performance Tee">I would wear this</button></div>
+          <span class="tag">Pre-order, first batch</span>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="/images/products/singlet.png" alt="Tiny Sports performance singlet in forest green, mockup" loading="lazy" />
+        <div class="p-body">
+          <h3>Performance Singlet</h3>
+          <p class="desc">Coolbreeze open knit, 85 percent recycled polyester, built for hot Queensland mornings. Mens and womens cuts, XS to XL.</p>
+          <div class="p-row"><span class="price">Price TBD</span><button type="button" class="buy notify" data-sku="SINGLET_PERF" data-name="Performance Singlet">I would wear this</button></div>
+          <span class="tag">Pre-order, first batch</span>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="/images/products/socks.png" alt="Tiny Sports performance crew socks in forest green, mockup" loading="lazy" />
+        <div class="p-body">
+          <h3>Performance Crew Socks</h3>
+          <p class="desc">PULSE knit with targeted compression zones, arch support and a blister free footbed. Two sizes.</p>
+          <div class="p-row"><span class="price">Price TBD</span><button type="button" class="buy notify" data-sku="SOCKS" data-name="Performance Crew Socks">I would wear this</button></div>
+          <span class="tag">Needs the most interest</span>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="/images/products/sticker.png" alt="Tiny Sports wordmark sticker, mockup" loading="lazy" />
+        <div class="p-body">
+          <h3>Wordmark Sticker</h3>
+          <p class="desc">Die cut vinyl, contour cut around the wordmark. For the bottle, the bike, the kit box.</p>
+          <div class="p-row"><span class="price">Price TBD</span><button type="button" class="buy notify" data-sku="STICKER_75" data-name="Wordmark Sticker">I would wear this</button></div>
+          <span class="tag">Ships first</span>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="/images/products/sticker.png" alt="Tiny Sports sticker pack, mockup" loading="lazy" />
+        <div class="p-body">
+          <h3>Sticker Pack</h3>
+          <p class="desc">Three die cuts: the wordmark, the crescent and the horizontal lockup. One for everything you own.</p>
+          <div class="p-row"><span class="price">Price TBD</span><button type="button" class="buy notify" data-sku="STICKER_PACK" data-name="Sticker Pack">I would wear this</button></div>
+          <span class="tag">Ships first</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="how">
+    <h2>How this actually works</h2>
+    <p>Tiny Sports is an Australian not for profit. We apply for government sport grants on behalf of grassroots clubs and independent coaches who cannot apply for themselves, then hand the funding straight to them. This collection funds that work.</p>
+
+    <div class="steps">
+      <div class="step"><span class="n">1</span><p>You tell us what you would wear. No payment, no commitment, no email required.</p></div>
+      <div class="step"><span class="n">2</span><p>When enough people want the same thing, we place a batch with FRACTEL. Their minimum is 25 of a style, so this only happens if the interest is real.</p></div>
+      <div class="step"><span class="n">3</span><p>FRACTEL makes it. That takes 8 to 10 weeks, so be realistic about timing. Stickers are made locally and arrive far sooner.</p></div>
+      <div class="step"><span class="n">4</span><p>Every dollar of margin goes to the Tiny Sports grant program, and you get told which club it went to.</p></div>
+    </div>
+
+    <p>Made with FRACTEL, an Australian running brand, so their logo appears alongside the Tiny Sports mark on the finished garment. Designed by SAROGraphics.</p>
+
+    <div class="ask">
+      <h3>Tell us what we are missing</h3>
+      <p>Wrong colour? Want a long sleeve, a bucket hat, a visor? Think the whole thing is off? That is genuinely more useful to us right now than a polite yes.</p>
+      <a href="mailto:jake.martin@saroarch.com?subject=Tiny%20Sports%20Collection%20feedback&amp;body=What%20I%20would%20wear%3A%0A%0AWhat%20is%20missing%3A%0A%0AWhat%20I%20would%20pay%3A%0A%0A">Send feedback</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 SAROGraphics &bull; A fundraiser for <a href="https://tiny-sports.org" target="_blank" rel="noopener">Tiny Sports</a><br />
+       <a href="/">sarographics.com</a> &bull; <a href="mailto:jake.martin@saroarch.com">Contact</a></p>
+    <p style="margin-top:0.75rem;font-size:0.72rem;opacity:0.6;">Please note, this document was formatted using AI but was checked by a human</p>
+  </footer>
+
+  <script>
+    (function () {
+      var done = [];
+      try { done = JSON.parse(localStorage.getItem('ts_interest') || '[]'); } catch (e) {}
+      function mark(btn) { btn.textContent = 'Noted, thank you'; btn.classList.add('done'); btn.disabled = true; }
+      function remember(sku) {
+        if (done.indexOf(sku) === -1) { done.push(sku); try { localStorage.setItem('ts_interest', JSON.stringify(done)); } catch (e) {} }
+      }
+      document.querySelectorAll('.notify').forEach(function (btn) {
+        var sku = btn.getAttribute('data-sku');
+        var name = btn.getAttribute('data-name') || sku;
+        if (done.indexOf(sku) !== -1) mark(btn);
+        btn.addEventListener('click', function () {
+          btn.disabled = true; btn.textContent = 'One sec';
+          fetch('/api/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sku: sku })
+          }).then(function (r) { return r.json(); }).then(function (j) {
+            if (j && j.ok) { mark(btn); remember(sku); }
+            else { fallback(btn, name, sku); }
+          }).catch(function () { fallback(btn, name, sku); });
+        });
+      });
+      // If the notifier is down, do not silently swallow the signal. Hand it to email.
+      function fallback(btn, name, sku) {
+        mark(btn); remember(sku);
+        var href = 'mailto:jake.martin@saroarch.com'
+                 + '?subject=' + encodeURIComponent('Interested: ' + name)
+                 + '&body=' + encodeURIComponent('I would wear the ' + name + '.\n\nSize:\nAnything else:\n');
+        window.location.href = href;
+      }
+    })();
+  </script>
+</body>
+</html>
