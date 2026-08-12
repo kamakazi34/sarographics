@@ -8,7 +8,7 @@ const seen = new Map(); // ipHash -> Set(sku), per warm instance
 let sent = 0;
 let windowStart = Date.now();
 
-const SKUS = new Set(['TEE_MINT','TEE_FOREST','TEE_WHITE','CAP_FOREST','CAP_MINT','STICKER_75','STICKER_PACK','GENERAL']);
+const SKUS = new Set(['CAP_FOREST','TEE_PERF','SINGLET_PERF','SOCKS','STICKER_75','STICKER_PACK','TEE_MINT','TEE_FOREST','TEE_WHITE','CAP_MINT','GENERAL']);
 
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
