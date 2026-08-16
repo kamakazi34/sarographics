@@ -60,3 +60,20 @@ Jake runs three companies. Apply the correct tone and context for each:
 - Never add `--confirm` to a cron job, a skill default, or a wrapper script
   without Jake's separate, explicit sign-off for that specific integration.
   "Available on the box" does not mean "on by default" anywhere.
+
+## MCP servers
+- **Playwright MCP** (`@playwright/mcp`, headless) is configured globally in
+  `~/.claude.json` on claude-server as of 16 Aug 2026, launched via
+  `npx -y @playwright/mcp@latest --headless`. It is live for every session on
+  this VM from the next session onward. `~/.claude.json` itself is local
+  machine state (contains OAuth/session data) and is never committed to any
+  repo; this note is the durable record of the decision.
+- Use it for live browser automation and interactive page inspection (driving
+  a real page, clicking through a flow, reading rendered content JS built).
+  The separate `webapp-testing` skill (raw Python Playwright scripts via
+  `scripts/with_server.py`) is unrelated and still the right tool for writing
+  repeatable local test scripts against a dev server; the two do not conflict.
+- Perplexity and Firecrawl MCP were previously scoped for global VM install
+  but are not yet configured (both need an API key from Jake first). Chrome
+  MCP and Glyph MCP are still ambiguous pending Jake's choice between
+  candidate implementations, see the `mcp-server-install-strategy` memory.
