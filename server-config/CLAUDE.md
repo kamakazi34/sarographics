@@ -62,12 +62,20 @@ Jake runs three companies. Apply the correct tone and context for each:
   "Available on the box" does not mean "on by default" anywhere.
 
 ## MCP servers
-- **Playwright MCP** (`@playwright/mcp`, headless) is configured globally in
-  `~/.claude.json` on claude-server as of 16 Aug 2026, launched via
-  `npx -y @playwright/mcp@latest --headless`. It is live for every session on
-  this VM from the next session onward. `~/.claude.json` itself is local
-  machine state (contains OAuth/session data) and is never committed to any
-  repo; this note is the durable record of the decision.
+- **Playwright MCP** (`@playwright/mcp`) is installed globally on claude-server as
+  `/usr/bin/playwright-mcp` and is registered in EVERY profile in
+  `~/.claude-profiles/` (minimal, content, commerce, creative, full, training) as
+  of 16 Aug 2026. It runs headless against the bundled chromium, with
+  `--isolated` and `--output-dir ~/.cache/playwright-mcp-output` so snapshots
+  never land on the RAM-backed /tmp.
+- **Why the profiles and not `~/.claude.json`:** `dispatch.sh` runs claude with
+  `--mcp-config <profile> --strict-mcp-config`, which loads ONLY the servers in
+  that profile file and ignores the global `~/.claude.json` entirely. An MCP
+  server registered only in `~/.claude.json` is invisible to every dispatched
+  run. Anything adding an MCP server to this VM must add it to
+  `~/.claude-profiles/*.json` AND to `gce-agent/claude-profiles/*.json` in
+  jake-saro-context, or it will silently not exist. Verified end to end on both
+  the project-session and the explicit-isolated (cron) dispatch paths.
 - Use it for live browser automation and interactive page inspection (driving
   a real page, clicking through a flow, reading rendered content JS built).
   The separate `webapp-testing` skill (raw Python Playwright scripts via
