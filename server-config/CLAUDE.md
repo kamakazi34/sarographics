@@ -85,3 +85,27 @@ Jake runs three companies. Apply the correct tone and context for each:
   but are not yet configured (both need an API key from Jake first). Chrome
   MCP and Glyph MCP are still ambiguous pending Jake's choice between
   candidate implementations, see the `mcp-server-install-strategy` memory.
+
+## When a tool "disappears" mid-run
+- MCP tools on this box are deferred: their schemas load and unload from the
+  active tool window over a long session. A call that fails with
+  `Error: No such tool available: mcp__<server>__<tool>` means the schema was
+  evicted from that window. The MCP server, the upstream API and the key are
+  all still fine.
+- Correct response: re-load the tool with ToolSearch
+  (`select:mcp__<server>__<tool>`, comma separated for several at once) and
+  retry the call. Do not treat it as an outage.
+- Never report an evicted tool as "the provider has gone down", and never stall
+  a batch on it. Confirmed 20 Aug 2026: a 23 venue card batch stopped after 5,
+  reporting that fal had dropped. At that same minute the fal API returned
+  HTTP 200 for the key in Secret Manager, and `npx -y fal-image-video-mcp`
+  handshook cleanly. The 24 `mcp__fal__*` schemas had simply been evicted at
+  10:43Z and were never re-loaded before the 11:04Z calls.
+- Before reporting any tool or service as down, prove it: call the API over
+  plain HTTPS with the key from Secret Manager. An HTTP 200 means the problem
+  is local to the session, not the provider.
+- Fal has a no-MCP fallback already deployed:
+  `~/fal_render.py <out.png> <base64-of-prompt> [width] [height]`. Plain
+  HTTPS, reads the key from Secret Manager (tries FAL_AI, then fal_key). Use it
+  whenever the fal MCP tools are unavailable. There is no reason to stall an
+  image batch on MCP tool-window state.
