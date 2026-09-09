@@ -65,10 +65,10 @@ For cotton tees / DTF logo work: Printify (The Print Bar Melbourne, Prima Printi
 
 ### 6.3 The product ladder
 
-1. SARO-branded run/tri tees (DTF/POD) — proves the brand.
-2. Applied branding service — heat-press logos on club-supplied garments.
+1. SARO-branded run/tri tees (DTF/POD): proves the brand.
+2. Applied branding service, heat-press logos on club-supplied garments.
 3. Full custom team tees (sublimated batch) with a design fee.
-4. Full custom tri-suits / cycling jerseys — highest value, needs fit samples.
+4. Full custom tri-suits / cycling jerseys, highest value, needs fit samples.
 5. (Next year) a small stocked SARO range plus repeat club contracts.
 
 ### 6.4 Pricing framework

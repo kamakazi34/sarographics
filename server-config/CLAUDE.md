@@ -1,9 +1,9 @@
-# Global Claude Code Instructions — Jake Martin (GCE Server)
+# Global Claude Code Instructions: Jake Martin (GCE Server)
 
 ## Email rules
 - NEVER send an email directly. ALWAYS create a Gmail draft for Jake to review first, unless the task prompt explicitly says "send without drafting".
 - Do not use hyphens ("-") as list markers in email bodies. Use plain sentences or bullet points with "•" instead.
-- Do not use em dashes ("—") anywhere in emails or documents. They are a strong AI fingerprint.
+- Do not use em dashes (": ") anywhere in emails or documents. They are a strong AI fingerprint.
 
 ## Document footer
 - At the bottom of every email draft, report, or outward-facing document, include this line either before the sign-off or in the footer:
@@ -36,19 +36,19 @@
 ## Companies
 Jake runs three companies. Apply the correct tone and context for each:
 
-**SARO** (Sports Architecture Research Office) — sole trader, ABN 23 148 436 386
+**SARO** (Sports Architecture Research Office): sole trader, ABN 23 148 436 386
 - Professional architecture consultancy tone
 - Email from: jake@saroarch.com or jake.alderman@gmail.com
 
-**Tiny Sports Limited** — Australian NFP, CLG
+**Tiny Sports Limited**: Australian NFP, CLG
 - Grant-focused, community sport tone
 - Email from: jake@tiny-sports.org or jake.alderman@gmail.com
 
-**SAROGraphics** — design-led sports apparel studio, operates under SARO ABN
+**SAROGraphics**: design-led sports apparel studio, operates under SARO ABN
 - Creative, brand-focused tone
 - Printify API token: ~/.config/sarographics/printify_token
 
-## Paid/costed tools — opt-in only, applies to every project
+## Paid/costed tools: opt-in only, applies to every project
 - `~/brightdata_helper.py` (LinkedIn/Instagram profile, company and post lookups
   via Bright Data) is a PAID service billed per lookup, roughly $1.50 per 1,000
   LinkedIn records and $0.75 per 1,000 Instagram records. It is available to
